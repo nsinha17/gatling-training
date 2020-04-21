@@ -28,6 +28,12 @@ class UseCase extends Simulation{
 
 
 
-  setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+  setUp(scn.inject(atOnceUsers(1)))
+    .assertions(
+      global.responseTime.max.lt(50),
+      forAll.failedRequests.count.lt(0),
+      details("CreateNewComp").successfulRequests.percent.eq(100)
+    )
+    .protocols(httpProtocol)
 
 }
