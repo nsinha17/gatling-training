@@ -13,17 +13,9 @@ pipeline {
             post {
                 always {
                     junit 'target/gatling/assertions-*.xml'
-                    publishHTML([
-                                            allowMissing         : false,
-                                            alwaysLinkToLastBuild: false,
-                                            keepAll              : true,
-                                            reportDir            : "./target/gatling/usecase-.*/",
-                                            reportFiles          : 'index.html',
-                                            reportName           : 'Test Report'
-                                    ])
                     gatlingArchive()
                 }
-
+            }
         }
     }
 }
