@@ -12,6 +12,7 @@ pipeline {
             }
             post {
                 always {
+                    junit 'target/gatling/assertions-*.xml'
                     gatlingArchive()
                 }
             }
