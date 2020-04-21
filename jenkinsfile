@@ -16,7 +16,7 @@ pipeline {
                     gatlingArchive()
                     publishHTML([
                     allowMissing:false,
-                    alwaysLinkToLastBuild:false
+                    alwaysLinkToLastBuild:false,
                     reportDir:"./target/gatling/usecase-.*/",
                     reportFiles:'index.html',
                     reportName:'Test Report'
